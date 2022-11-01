@@ -5,7 +5,7 @@ import java.util.List;
 public interface ProgrammingLanguageRepository {
     void add(ProgrammingLanguage programmingLanguage);
     void delete(int id);
-    void update(int id, ProgrammingLanguage programmingLanguage);
+    void update(int index, ProgrammingLanguage programmingLanguage);
     List<ProgrammingLanguage> getAll();
     ProgrammingLanguage getById(int progLangID);
 }

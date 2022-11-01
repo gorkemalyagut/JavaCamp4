@@ -1,7 +1,9 @@
 package Kodlama.io.Devs.dataAccess.concretes;
+
 import Kodlama.io.Devs.dataAccess.abstracts.ProgrammingLanguageRepository;
 import Kodlama.io.Devs.entities.concretes.ProgrammingLanguage;
 import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +22,6 @@ public class InMemoryProgrammingLanguageRepository implements ProgrammingLanguag
     @Override
     public void add(ProgrammingLanguage programmingLanguage) {
         programmingLanguages.add(programmingLanguage);
-
     }
 
     @Override
@@ -35,11 +36,11 @@ public class InMemoryProgrammingLanguageRepository implements ProgrammingLanguag
     }
 
     @Override
-    public void update(int id, ProgrammingLanguage programmingLanguage) {
+    public void update(int index, ProgrammingLanguage programmingLanguage) {
         for (ProgrammingLanguage progLang : programmingLanguages) {
-            if (progLang.getProgLangID() == id) {
-                programmingLanguages.set(id, programmingLanguage);
-                System.out.println(progLang.getProgLangNAME() + "programming language is update");
+            if (progLang.getProgLangID() == programmingLanguage.getProgLangID()) {
+                programmingLanguages.set(index, programmingLanguage);
+                System.out.println("update:" + progLang.getProgLangNAME() + "programming language is update");
             }
         }
     }
@@ -53,7 +54,7 @@ public class InMemoryProgrammingLanguageRepository implements ProgrammingLanguag
     public ProgrammingLanguage getById(int progLangID) {
         for (ProgrammingLanguage progLang : programmingLanguages) {
             if (progLang.getProgLangID() == progLangID) {
-                System.out.println(progLang.getProgLangNAME() + "programming language");
+                System.out.println("getById: " + progLang.getProgLangNAME() + " programming language");
             }
         }
         return null;

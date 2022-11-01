@@ -2,9 +2,8 @@ package Kodlama.io.Devs.webApi.controllers;
 import Kodlama.io.Devs.business.abstracts.ProgrammingLanguageService;
 import Kodlama.io.Devs.entities.concretes.ProgrammingLanguage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 @RestController
 @RequestMapping("/api/programming-language")
@@ -25,17 +24,17 @@ public class ProgrammingLanguageController {
     public ProgrammingLanguage getById(int id) {
         return programmingLanguageService.getById(id);
     }
-    @GetMapping("/add")
-    public void add(ProgrammingLanguage programmingLanguage){
+    @PostMapping("/add")
+    public void add(ProgrammingLanguage programmingLanguage) throws Exception {
         programmingLanguageService.add(programmingLanguage);
     }
-    @GetMapping("/delete")
+    @DeleteMapping("/delete")
     public void delete(int id){
         programmingLanguageService.delete(id);
     }
-    @GetMapping("/update")
-    public void update(int id, ProgrammingLanguage programmingLanguage){
-        programmingLanguageService.update(id, programmingLanguage);
+    @PutMapping("/update")
+    public void update(int index, ProgrammingLanguage programmingLanguage) throws Exception {
+        programmingLanguageService.update(index, programmingLanguage);
     }
 
 }
